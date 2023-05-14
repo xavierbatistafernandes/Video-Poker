@@ -1,1 +1,6 @@
-# Math-in-Casinos-Video-Poker
+# Video Poker
+
+## Project Description
+
+## Repository Organization
+
