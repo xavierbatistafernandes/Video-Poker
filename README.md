@@ -1,24 +1,26 @@
 # Video Poker
 
 ## Introduction
-This repository contains a project implemented in Java. 
-Its purpose is to explore Object Oriented Programming.
-This project implements the casino game 'Video Poker'. 
-
+This repository contains a project implemented in Java.
+Its purpose is to explore the concepts of Object Oriented Programming, by building a program that is highly extensible.
+It is an implementation of the casino game **Video Poker**. 
 
 For context, Video Poker is a slot machine casino game.
-The player tries to maximize his profit by betting in card hands.
-The game is played through rounds. Each round 5 cards from a tradition Rank/Suit deck are drawn to the player.
-The player has the change to hold or to trade each one of his 5 cards. 
-If he decides to trade some cards, those are removed from is initial hand and new ones are given. 
-The value of the final combination of cards is evaluated, and the player may win or not credits depending on the quality of the hand.
 
-There are many variants to this game. (TODO)
+Some of the rules, in a simplified list, are as follows:
+- it is a single player game
+- the player tries to maximize his profit by betting in card hands
+- the game is played through rounds or card deals
+- every round the player receives 5 different cards from a 52 card deck
+- the player then gets to choose which cards he wants to discard
+- discarded cards are replaced with new ones
+- the value of the final 5 cards is evaluated
+- the more valuable the hand of the player, the higher is the reward
 
-To read more about the casino game please read:
+To read more about this casino game please read:
 
-- link1
-- link2
+- [Video Poker](https://en.wikipedia.org/wiki/Video_poker)
+- [List of Poker Hands](https://en.wikipedia.org/wiki/List_of_poker_hands)
 
 
 ## Setup & Repository Organization
@@ -27,17 +29,25 @@ To read more about the casino game please read:
 
 In order to run this project you need to have at least JRE (Java Runtime Environment) installed in your machine (so you can run java applications).
 
+You can install JRE through java's official website:
+- https://www.java.com/
+
+
 Check if you are able to run java applications by verifying the installed version:
 ```
 java --version
 ```
 
-If your machine didn't recognize the ```java``` command, you either don't have java installed or you don't have it properly configured yet. 
+If your machine didn't recognize the ```java``` command, you either don't have java installed or you don't have it properly configured yet.
 
-This project is compacted into a single JAR (Java ARchive), which will be used to run the application. Check if you have JAR configured by typing the following command:
+In case you have installed JRE but the command isn't still recognizable, try adding the binaries of JRE (the path to the `bin` directory of JRE) to the path environment variable.
+
+The project source files are compacted into a single JAR (Java Archive), which will simplify the process of running the application. Check if you have JAR configured by typing the following command:
 ```
 jar --version
 ```
+
+If the command is recognized, then you are now able to run the application!
 
 
 
@@ -47,9 +57,13 @@ Now that you have java configured, you may clone this repository to your machine
 
 This project was built in a way so that you can easily expand it (for example, by adding new variations of the Video Poker).
 
-This repository provides a UML (Unified Modeling Language) diagram so you can better understand how the existing classes their respective object instances will relate with each other. To access it, open the `UML.pdf` file in the `UML/` directory.
+The repository has three main directories at the root level:
 
+- **SRC**: where the source files are stored
+- **TESTS**: some input files which can be used when running the application
+- **UML**: contains information regarding the structure of the application
 
+This repository provides a UML (Unified Modeling Language) diagram so you can better understand how the classes (and their respective object instances) relate with each other. To view it, open the `UML.pdf` file in the `UML/` directory.
 
 
 ## Functionality
@@ -91,24 +105,13 @@ To run the application in **Simulation** mode, you need to replace the `<argumen
 - `nbdeals` is how many rounds the player will play
 
 
-
-## Generating Documentation (JDOC)
-
-In order to keep this repository a little bit simpler, the Java Documention hasn't been provided. Nonetheless, you can generate it by executing the ´javadoc´ command (installing JDK should also install this binary):
-
-```
-javadoc -d JDOC <packages>
-```
-
-Replace `<packages>` with all the source packages, namely `game`, `cards` and `main`. A new directory entitled `JDOC` will be generated, which holds the generated documentation of this project. To visualize it you simply need to open the `index.html` file in your browser and navigate.
-
 ## Extending this Project
 
-If you intend  extend this project by adding new classes (for example, new variations for the Video Poker modes), you will require JDK (Java Development Kit). It will allow you to compile the new features (classes) and connect them to the existing ones. 
+If you intend to extend this project by adding new classes (for example, new variations for the Video Poker modes), you will require JDK (Java Development Kit). It will allow you to compile the new features (classes) and connect them to the existing ones. 
 
-You can install JDK throught java's official website:
+You can install JDK throught Oracle's official website:
 
-- java jdk and jre website
+- https://www.oracle.com/java/technologies/downloads/
 
 You may check if you have the compiler configured through the command:
 
@@ -118,6 +121,27 @@ javac --version
   
 Again, in case you have installed JDK but the command isn't still recognizable, try adding the binaries of JDK to the path environment variable.
 
+
+## Generating Documentation (JDOC)
+
+In order to keep this repository a little bit lighter, the Java Documention hasn't been provided. Nonetheless, you can generate it by executing the ´javadoc´ command (installing JDK should also install this binary):
+
+```
+javadoc -d JDOC <packages>
+```
+
+Replace `<packages>` with all the source packages, namely `game`, `cards` and `main`, all inside the `SRC/` directory. A new directory entitled `JDOC` will be generated, which holds the generated documentation of this project. To visualize it you simply need to open the `index.html` file in your browser.
+
+## Generating a Java Archive (JAR)
+
+In case you have extended the project and want to update the `videopoker.jar` java archive, you can execute the following command:
+
+```
+jar -cmf <manifest> videopoker.jar <compiled sources>
+```
+
+- `<manifest>` is the MANIFEST. It is a file where you indicate the class containing the main method you want to run. In this context: `Main-Class: SRC.main.Main`. The MANIFEST should have no other character/text, it is space- and case-sensitive, and it **must end with a blank line (\n)**.
+- `<compiled sources>` are all the `.class` files that your program uses. Optionally, you can also include the program's `.java` files.
 
 
 
