@@ -19,8 +19,8 @@ Some of the rules, in a simplified list, are as follows:
 
 To read more about this casino game please read:
 
-- [Video Poker](https://en.wikipedia.org/wiki/Video_poker)
-- [List of Poker Hands](https://en.wikipedia.org/wiki/List_of_poker_hands)
+- https://en.wikipedia.org/wiki/Video_poker
+- https://en.wikipedia.org/wiki/List_of_poker_hands
 
 
 ## Setup & Repository Organization
@@ -59,11 +59,11 @@ This project was built in a way so that you can easily expand it (for example, b
 
 The repository has three main directories at the root level:
 
-- **SRC**: where the source files are stored
-- **TESTS**: some input files which can be used when running the application
-- **UML**: contains information regarding the structure of the application
+- **src**: where the source files are stored
+- **tests**: some input files which can be used when running the application
+- **uml**: contains information regarding the structure of the application
 
-This repository provides a UML (Unified Modeling Language) diagram so you can better understand how the classes (and their respective object instances) relate with each other. To view it, open the `UML.pdf` file in the `UML/` directory.
+This repository provides a UML (Unified Modeling Language) diagram so you can better understand how the classes (and their respective object instances) relate with each other. To view it, open the `UML.pdf` file in the `uml/` directory.
 
 
 ## Functionality
@@ -89,7 +89,22 @@ To run the application in **Debug** mode, you need to replace the `<arguments>` 
 - `cmd-file` is a file with the commands the players shall execute
 - `card-file` is a file with the deck from which cards will be drawn
 
-A few examples for the `cmd-file` and `card-file` are available in the `TESTS/` directory.
+#### cmd-file & card-file
+
+The possible commands are:
+
+| Command | Meaning    | 
+|---------|------------|
+| b       | bet        |
+| $       | credit     |
+| d       | deal       |
+| h       | hold       |
+| a       | advice     |
+| s       | statistics |
+
+The cards are defined with a pair indicating the rank and the suit of the card.
+
+A few examples for the `cmd-file` and `card-file` are available in the `tests/` directory.
 
 ### Simulation Mode (-s option)
 
@@ -130,7 +145,7 @@ In order to keep this repository a little bit lighter, the Java Documention hasn
 javadoc -d JDOC <packages>
 ```
 
-Replace `<packages>` with all the source packages, namely `game`, `cards` and `main`, all inside the `SRC/` directory. A new directory entitled `JDOC` will be generated, which holds the generated documentation of this project. To visualize it you simply need to open the `index.html` file in your browser.
+Replace `<packages>` with all the source packages, namely `game`, `cards` and `main`, all inside the `src/` directory. A new directory entitled `JDOC` will be generated, which holds the generated documentation of this project. To visualize it you simply need to open the `index.html` file in your browser.
 
 ## Generating a Java Archive (JAR)
 
@@ -140,7 +155,7 @@ In case you have extended the project and want to update the `videopoker.jar` ja
 jar -cmf <manifest> videopoker.jar <compiled sources>
 ```
 
-- `<manifest>` is the MANIFEST. It is a file where you indicate the class containing the main method you want to run. In this context: `Main-Class: SRC.main.Main`. The MANIFEST should have no other character/text, it is space- and case-sensitive, and it **must end with a blank line (\n)**.
+- `<manifest>` is the MANIFEST. It is a file where you indicate the class containing the main method you want to run. In this context: `Main-Class: main.Main`. The MANIFEST should have no other character/text, it is space- and case-sensitive, and it **must end with a blank line (\n)**.
 - `<compiled sources>` are all the `.class` files that your program uses. Optionally, you can also include the program's `.java` files.
 
 
